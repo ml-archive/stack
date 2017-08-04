@@ -1,12 +1,12 @@
 #include <execinfo.h>
 #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include <string.h>
 
-#ifndef _GNU_SOURCE
-    #define _GNU_SOURCE
-#endif
+#define _GNU_SOURCE
 #include <dlfcn.h>
 
 char ** get_symbols_for_backtrace(void * const *buffer, int size) {
@@ -24,7 +24,7 @@ char ** get_symbols_for_backtrace(void * const *buffer, int size) {
         if (info.dli_sname) {
             name = (char *)info.dli_sname;
         }
-        
+
         result[i] = strdup(name);
     }
     
